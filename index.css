@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';   
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; 
+}
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 120px;
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(72, 47, 47, 0.5); 
+    z-index: 100;
+}
+
+nav{
+    display: flex;
+    align-items: center;    
+    justify-content: space-between;
+}
+
+.links-container{
+    display: flex;
+    gap: 50px;
+}
+
+.logo{
+    font-size: 25px;
+    color: #158172;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+nav a{
+    font-size: 18px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+
+.links-container a {
+    position: relative;
+}
+
+.links-container a::after {
+    content: '';
+    height: 6px;
+    width: 0;
+    background: #158172;
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+.links-container a:hover::after,
+.links-container a.active::after {
+    width: 100%; 
+}
+
+
+
+.login-btn{
+    font-weight: 600;
+    border-radius: 9px;
+    padding: 10px 40px;
+    background-color: #158172; 
+    color: white; 
+    border: none; 
+    font-size: 16px; 
+    cursor: pointer; 
+    box-shadow: 0px 4px 4px rgba(72, 47, 47, 0.5); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+}
+
+button:hover{
+    transform: translateY(-2px); 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+section{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    font-size: 100px;
+    color: #000;
+    font-weight: 700;
+    scroll-snap-align: start;
+}
+
+section:nth-child(odd){
+    background-color: #fff;
+
+}
+
+.popup-login, .popup-signup {
+    visibility: hidden;
+    padding: 70px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: 9999; 
+}
+
+.popup-login button{
+    margin-top: 30px;
+}
+
+.popup-signup button{
+    margin: 10px;
+}
+
+.popup-login p:first-child, .popup-signup p:first-child  {
+    margin-bottom: 20px;
+    font-weight: 800;
+    color: #158172;
+    font-size: 1.5rem;
+}
+
+.popup-login .user-box, .popup-signup .user-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-login .user-box input,  .popup-signup .user-box input, .popup-signup .user-box select{
+    width: 300px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    background: transparent;
+}
+
+.popup-signup .user-box2 input{
+    width: 140px;
+    font-size: 14px;
+    padding: 10px 0;
+    margin-bottom: 11px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    background: transparent;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.popup-login .user-box input[type="text"], .user-box input[type="password"]  {
+    padding-left: 40px; 
+}
+
+.user-box i {
+    position: absolute;
+    color: #aaa;
+    left: 10px; 
+    top: 30%;
+    transform: translateY(-50%);
+    transition: color 0.3s; 
+}
+
+.user-box input:focus + i {
+    color: #158172; 
+}
+.popup-login .user-box input:focus {
+    border-bottom: 1px solid #158172;
+}
+
+.popup-login .user-box label {
+    position: absolute;
+    margin-bottom: -100px;
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: .5s;
+    text-align: left;
+    width: 100%;
+}
+
+
+.popup-login .user-box input:focus ~ label,
+.popup-login .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #000;
+    font-size: 12px;
+}
+
+.popup-login a, .popup-signup a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #158172;
+}
+
+.popup-login p:last-child, .popup-signup p:last-child {
+    width: 300px;
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+    font-size: 12px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(5px);
+}
+
+.form-container{
+    display: flex;
+    gap: 30px;
+}
+
+.form-column{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-container2{
+    display: flex;
+    gap: 20px;
+
+}
+
+.popup-signup{
+    width: 800px;
+}
+  
+  
+
+#about{
+    display: flex;
+    flex-direction: column;
+}
+
+.section .img-container{
+    width: 100%;
+    height: 50%;
+    background-image: url('dogs-homepage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pet-profiles-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.adopt-your-new-bff{
+    padding: 20px;
+    color: #158172;
+    font-size: 2rem;
+}
+
+.pet-profiles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.pet-profiles img{
+    width: 84%;
+}
+
+.view-pfp-btn{
+    border-radius: 20px;
+    height: 30px;
+    width: 120px;
+    background-color: #fff;
+    color: #158172;
+    font-weight: 600;
+    border: 2px solid #158172;
+}
+
+footer{
+    position: fixed;
+    color: #fff;
+    height: 4em;
+    width: 100%;
+    bottom: 0;
+    padding: 0 2em 0 0;
+    background-color: #158172;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h5{
+    font-family: 'Inter';
+    font-weight: 100;
+}
+
+.contacts .links{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.creator {
+    color: #8EFFEF;
+    font-weight: 600;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pets and Paws</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Pets and Paws</a>
+            <div class="links-container">
+               
+                    <a href="#about"> ABOUT US </a>
+                    <a href="#adopt"> ADOPT </a>
+                    <a href="#rescue"> RESCUE </a>
+                    <a href="#contact"> CONTACT</a>
+            
+            </div>
+            <button class="login-btn" onclick="showLogin()">Login</button>
+        </nav>
+    </header>
+
+    <div class="popup-login">
+        <p>Login</p>
+        <form>
+            <label>Email</label>
+            <div class="user-box">
+                <i class="fa-solid fa-user"></i>
+                <input required="" name="email" type="text">
+                
+            </div>
+
+            <label>Password</label>
+            <div class="user-box">
+                <i class="fa-solid fa-lock"></i>
+                <input required="" name="password" type="password">
+            </div>
+
+        </form>
+        <button class="login-btn">Login</button>
+        <p>Doesn’t have an account yet? <a href="#" class="signup-link">Create Account?</a></p>
+
+
+    </div>
+
+
+    <div class="popup-signup">
+        <p>Sign Up</p>
+
+        <div class="form-container">
+            <div class="form-column">
+
+                <form>
+                    <label>First Name</label>
+                    <div class="user-box">
+                        <input required="" name="first_name" type="text">
+                        
+                    </div>
+        
+                    <label>Last Name</label>
+                    <div class="user-box">
+                        <input required="" name="last_name" type="text">
+                        
+                    </div>
+        
+                    <label>Email</label>
+                    <div class="user-box">
+                        <input required="" name="email" type="text">
+                    </div>
+    
+                    <label>Password</label>
+                    <div class="user-box">
+                        <input required="" name="password" type="text">
+                    </div>
+        
+                </form>
+            </div>
+            
+
+            <div class="form-column">
+
+                <form>
+                    <label>Address</label>
+                    <div class="user-box">
+                        <input required="" name="address" type="text">
+                    </div>
+    
+                </form>
+
+                <div class="form-container2">
+                    <form>
+                        <div class="user-box2">
+                            <input required="" name="province" value="Metro Manila" type="text">
+                        </div>
+
+                        </form>
+
+                        <form>
+                        <div class="user-box2">
+                            <input required="" name="city" value="Quezon City" type="text">
+                        </div>
+                    </form>
+                </div>
+
+                <form>
+                    <div class="user-box">
+                        <select required="" name="contact-no">
+                            <option value="" disabled selected>Barangay</option>
+                        </select>
+                    </div>
+                </form>
+
+                <div class="form-container2">
+                    <form>
+                        <div class="user-box2">
+                            <input required="" name="blk" placeholder="House No./Blk/Lot" type="text">
+                        </div>
+
+                        </form>
+
+                        <form>
+                        <div class="user-box2">
+                            <input required="" name="street" placeholder="Street Name" type="text">
+                        </div>
+                    </form>
+                </div>
+
+                <form>
+                    <label>Contact No.</label>
+                    <div class="user-box">
+                        <input required="" name="address" type="text">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+        <button class="login-btn">Sign Up</button>
+
+    </div>
+
+    <section id="about" class="section"> 
+        <div class="img-container"></div>
+
+        <p class="adopt-your-new-bff"> ADOPT YOUR NEW BEST FRIEND! </p>
+        
+        <div class="pet-profiles-container">
+            <div class="pet-profiles">
+                <img src="beautiful-smooth-haired-red-cat.png" alt="Beautiful smooth haired red cat">
+                <button class="view-pfp-btn"> View Profile</button>
+            </div>
+
+            <div class="pet-profiles">
+                <img src="cute-dog.png" alt="Cute dog">
+                <button class="view-pfp-btn"> View Profile</button>
+            </div>
+
+            <div class="pet-profiles">
+                <img src="petrabbit.png" alt="Oet rabbit">
+                <button class="view-pfp-btn"> View Profile</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="adopt" class="section"> ADOPT </section>
+    <section id="rescue" class="section"> RESCUE </section>
+    <section id="contact" class="section"> CONTACT </section>
+
+
+    <div id="overlay" class="overlay"></div>
+
+
+    <footer>
+        <h5>&copy; Copyright 2024 | All rights reserved.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Created by <span class="creator"> Fesariton · Melliza · Pinca · Quintos · Rivera</span> 
+        </h5>
+
+        <div class="contacts">
+            <h5>Connect with us: </h5>
+            <div class="links">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showLogin() {
+            var popupLogin = document.querySelector('.popup-login');
+            var overlay = document.getElementById('overlay');
+    
+            popupLogin.style.visibility = "visible";
+            overlay.style.display = "block"; 
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupLogin = document.querySelector('.popup-login');
+            var loginBtn = document.querySelector('.login-btn');
+            var overlay = document.getElementById('overlay');
+    
+            loginBtn.addEventListener('click', function(event) {
+                event.stopPropagation(); 
+                showLogin();
+            });
+    
+            document.body.addEventListener('click', function(event) {
+                if (!popupLogin.contains(event.target)) {
+                    popupLogin.style.visibility = "hidden"; 
+                    overlay.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var signupLink = document.querySelector('.signup-link');
+            var popupSignup = document.querySelector('.popup-signup');
+            var overlay = document.getElementById('overlay');
+
+            function showSignup(event) {
+                event.preventDefault(); 
+                popupSignup.style.visibility = "visible";
+                overlay.style.display = "block";
+            }
+
+            signupLink.addEventListener('click', showSignup);
+
+            document.body.addEventListener('click', function(event) {
+                if (!popupSignup.contains(event.target) && event.target !== signupLink) {
+                    popupSignup.style.visibility = "hidden";
+                    overlay.style.display = "none";
+                }
+            });
+
+    popupSignup.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+    });
+        });
+ 
+    </script>
+
+    
+</body>
+
+</html>
